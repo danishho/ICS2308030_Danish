@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>KPMIM</h1>
+    <h2>courses</h2>
+    <form action="{% url 'course' %}" method="post">
+        {% csrf_token %}
+        Course Code: <input type="text" name="code"><br><br>
+        Description: <input type="text" name="desc"><br><br>
+        <input type="Submit" Value="SAVE"><br><br>
+    </form>
+    {{ message }}
+
+    <h1>all values</h1>
+    <table border="1">
+        <tr>
+            <th>code</th>
+            <th>descriptio</th>
+            <th>update</th>
+            <th>delete</th>
+        </tr>
+        {% for x in course %}
+            <tr>
+                <td>{{ x.code }}</td>
+                <td>{{ x.description }}</td>
+            <td><a href="update_course/{{ x.code }}">update</a></td>
+            <td><a href="delete_course/{{ x.code }}">Delete</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>

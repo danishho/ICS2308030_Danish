@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>This index </h1>
+    {% with student_name="hai" %}
+        <h1>Hello {{ student_name }}</h1>
+    {% endwith %}
+    <a href="{% url 'view' %}">view.html</a>
+    <br>
+    <a href="{% url 'database' %}">database.html</a>
+
+</body>
+
+{% if greeting == 1 %}
+    <h1>   hello welcome to selection</h1>
+{% elif greeting == 0 %}
+    <h1>zero</h1>
+{% else %}
+    <h1>nonono</h1>
+{% endif %}
+
+<a href="{% url 'course' %}">insertcourse.html</a>
+<br>
+<a href="{% url 'mentor' %}">mentor</a>
+<br>
+<a href="{% url 'search' %}">search</a>
+
+
+</html>

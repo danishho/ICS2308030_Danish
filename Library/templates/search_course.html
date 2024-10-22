@@ -1,0 +1,20 @@
+<h1>welcome to kpmim</h1>
+<strong>Search Course</strong>
+<br><br>
+<form action="" method="get">
+    Enter Course <input type="text" name="c_code">
+    <input type="submit" value="search">
+</form>
+
+<table border="1">
+    <th>code</th><th>description</th>
+    {% for x in data %}
+    <tr>
+        <td>{{ x.code }}</td>
+        <td>{{ x.description }}</td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+<a href="{% url 'index' %}">homepage</a>

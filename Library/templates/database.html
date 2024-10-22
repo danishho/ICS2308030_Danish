@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>This database</h1>
+
+    <h1>Student</h1>
+    {% for x in student %}
+        <p>Student ID:{{ x.student_id }} Student Name:{{ x.student_name }}</p>
+
+    {% endfor %}
+
+    <h1>book title</h1>
+    {% for b in book %}
+        <p>{{ b.title }}</p>
+    {% endfor %}
+
+  <h1>Borrowing</h1>
+    {% for c in borrowing %}
+        <p>borrow id:{{ c.borrow_id  }}</p>
+        <p>TITLE:{{ c.book_id.title }}</p>
+        <p>STUDENT_NAME:{{ c.student_id.student_name }}</p>
+        <p>{{ c.borrow_date }}</p>
+        <p>{{ c.return_date }}</p>
+
+        {% if c.book_id.title == 'Introduction to algorithms' %}
+            <h1>hai aiman</h1>
+        {% endif %}
+
+    {% endfor %}
+
+
+    <a href="{% url 'view' %}">view.html</a>
+    <a href="{% url 'index' %}">index.html</a>
+
+</body>
+</html>

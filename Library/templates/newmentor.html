@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form action="{% url 'mentor' %}" method="post">
+       {% csrf_token %}
+        <label for="">enter mentor id:</label>
+        <br>
+        <input type="text" name="mentor_id">
+        <br>
+        <label for="">enter mentor name:</label>
+        <br>
+        <input type="text" name="mentor_name">
+        <br>
+        <label for="">enter mentor room number</label>
+        <br>
+        <input type="text" name="mentor_room">
+        <br>
+        <input type="Submit" value="Submit">
+    </form>
+    {{message}}
+    <h1>all list mentor</h1>
+    <table border="1">
+        <tr>
+            <th>mantor id</th>
+            <th>mentor name</th>
+            <th>mentor room</th>
+            <th>update</th>
+            <th>delete</th>
+        </tr>
+
+        {% for x in mentor %}
+
+            <tr>
+                <td>{{ x.menid }}</td>
+                <td>{{ x.menname }}</td>
+                <td>{{ x.menroomno }}</td>
+                <td><a href="update_mentor/{{ x.menid }}">update</a></td>
+                <td><a href="delete_mentor/{{ x.menid }}">delete</a></td>
+            </tr>
+        {% endfor %}
+
+
+    </table>
+
+    <a href="{% url 'index' %}"> back to homepage</a>
+
+
+</body>
+</html>
